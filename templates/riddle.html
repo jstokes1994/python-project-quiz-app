@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Game Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/css/style.css" type="text/css" />
+</head>
+
+<body>
+
+    <div class="container-fluid full-page">
+        <div class="content-container">
+            <div class="content">
+                <h1 class="content-text content-header">{{ question }}</h1>
+                <form method="POST" class="guess">
+                    <label for="guess" class="content-text content-subtext">Answer:</label>
+                    <input type="text" id="guess" name="guess">
+                    <button>Enter</button>
+                </form>
+                <p class="content-text content-header incorrect_answers">Incorrect answers:</p>
+                {% for answer in incorrect_answers %}
+                <p class="content-text content-subtext incorrect_answers"> {{ answer }} </p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

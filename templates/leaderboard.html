@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Home Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/css/style.css" type="text/css" />
+</head>
+
+<body>
+    <div class="container-fluid full-page">
+        <div class="content-container">
+            <div class="content" style="overflow-y:auto;">
+                <h1 class="content-text content-header">RiddleMeThis - Leaderboard</h1>
+
+
+                <table class="leaderboard-table">
+                    <tr>
+                        <th>Username</th>
+                        <th>Score</th>
+                    </tr>
+                    {% for word, times in username_and_score %}
+                    <tr>
+                        <td>{{times}}</td>
+                        <td>{{word}}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

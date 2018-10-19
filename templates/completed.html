@@ -3,19 +3,22 @@
 
 <head>
     <title>Completed</title>
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/css/style.css" type="text/css" />
 </head>
 
 <body>
-    <h1>Congratulations {{ username }}, you've completed RiddleMeThis!</h1>
-    
-    <form method="POST">
-    <button name="leaderboard">Leaderboard</button>
-    </form>
-    <form method="POST">
-    <button name="restart">Play again</button>
-    </form>
-    
+
+    <div class="container-fluid full-page">
+        <div class="content-container">
+            <div class="content">
+                <h1 class="content-text content-header">Congratulations {{ username }}, you've completed RiddleMeThis!</h1>
+                <form method="POST">
+                    <button name="leaderboard" class="completed-buttons leaderboard">Leaderboard</button>
+                </form>
+            </div>
+        </div>
+    </div>
 
 </body>
 

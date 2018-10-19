@@ -5,7 +5,7 @@ keyboard
 3. What stays in one corner but travels around the world?
 stamp
 4. What is green and smells like blue paint?
-green+paint
+green paint
 5. What's the difference between a well dressed man on a bicycle and a poorly dressed man on a unicycle?
 attire
 6. Say my name I am no more, what am I?
