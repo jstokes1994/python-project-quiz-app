@@ -110,3 +110,14 @@ For testing the leaderboard() function, I used the automated tests shown in
 test.py but also made sure the data was being passed to the HTML file properly.
 I tried new users with random names answering varying numbers of questions and
 was satisfied it was being displayed correctly.
+
+## Deployment
+
+The project was deployed to Heroku with config vars:
+
+- IP = 0.0.0.0
+- PORT = 5000
+
+There are no differences between the development and deployed versions.
+
+Note the project us written with Python3 and not Python2.
