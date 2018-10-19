@@ -1,18 +1,16 @@
 import os
 import re
 from flask import Flask, render_template, request, redirect, url_for
-from operator import itemgetter
 
 app = Flask(__name__)
 
 incorrect_answers = []
-score = 0
 
 def get_all_questions():
-    """
-    This function takes each line in questions.txt file, puts them into individual lists before zipping into a list of
-    tuples
-    """
+
+# This function takes each line in questions.txt file, puts them into individual lists before zipping into a list of
+# tuples
+
     questions = []
     answers = []
     with open("data/questions.txt", "r") as riddles:
@@ -27,10 +25,10 @@ def get_all_questions():
     return questions_and_answers
     
 def checkUsernameExists(username):
-    """
-    This function reads each line in users.txt and returns true if the name input already exists
-    The input username is the parameter of the function
-    """
+
+# This function reads each line in users.txt and returns true if the name input already exists
+# The input username is the parameter of the function
+    
     with open("data/users.txt", "r") as usernameList:
         if re.search('^{0}$'.format(re.escape(username)), usernameList.read(), flags=re.M):
             return True
@@ -67,10 +65,11 @@ def usernameExists(username):
 
     
 @app.route('/<username>/<question_number>', methods=['GET', 'POST'])
-#Ask a question dependent on which question_number the user is on
+# Ask a question dependent on which question_number the user is on
+# Also checks the user's answer against the answer and redirects to success/failure page
+# If incorrect the answer is stored in a list and sent to the HTML template to be shown on the page
+# Starts the scoreboard functionality by simply writing the username to a newline in leaderboard.txt when correct
 def ask_questions(username, question_number):
-    global score
-    score = 0
     questions = get_all_questions()
     question = questions[int(question_number)][0]
     if request.method == "POST":
@@ -86,7 +85,6 @@ def ask_questions(username, question_number):
             return redirect(url_for('success_page', username=username, question_number=question_number, answer=answer))
         else:
             incorrect_answers.append(answer)
-            print(incorrect_answers)
             return redirect(url_for('failure_page', username=username, question_number=question_number, answer=answer))
     return render_template("riddle.html", question=question, username=username, incorrect_answers=incorrect_answers)
     
