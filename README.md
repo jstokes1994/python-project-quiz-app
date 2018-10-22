@@ -1,6 +1,6 @@
 # RiddleMeThis
 
-This is a game that combines Python and Flask to produce a quiz game. The game
+This is an app that combines Python and Flask to produce a quiz game. The game
 asks 8 different riddles which a user can work through before reaching the end.
 
 The game includes a leaderboard in which it shows the high scores of users that 
@@ -8,19 +8,19 @@ have taken part in the game (includes those who didn't make it to the end).
 
 Since the learning had not taken us through sessions, I made the presumption
 they were not supposed to be used. Through research for the project I did
-note that sessions would be useful certain areas but decided to provide
+note that sessions would be useful for certain areas but decided to provide
 a solution without.
 
 ## UX
 
-My project is very simplistic in design. Considering the lack of features
+My project is very simplistic in design. Considering the lack of total features
 expected it felt necessary to produce a clean and simple design to the user.
 
 The homepage very briefly introduces the game and the box to provide a username
 is self explanatory. It also provides a button to view the leaderboard.
 
-Each page thereafter follows a consistent CSS style which offers no surprise
-or distraction from the project's purpose.
+Each page thereafter follows a consistent CSS/bootstrap style which offers no
+surprise or distraction from the project's purpose.
 
 One potential user frustration would potentially come from when incorrect on an
 answer or when attempting to choose a unique username. For both, the game is
@@ -45,26 +45,23 @@ The ask_questions() function also facilitated the checking of the answer in
 which the questions_and_answers list of tuples again became useful in which
 the index could be found as follows: [question_number][1].
 
+### String Matching for similar answers:
+
+Through the use of FuzzyWuzzy, a module I found when researching string
+matching. It solved the problem of answers that were very close. For example,
+if the answer in my questions.txt was 'keyboard' and a user types 'a keyboard',
+the system should be intuitive to accept this answer. Fuzz.ratio() takes two
+strings as its parameters and compares them producing a value that signifies
+similarity. I decided a minimum of 80% similarity was enough. This also allows
+for small spelling mistakes as well as the use of small connecting words.
+
 ### Incorrect answers:
 
 Within the ask_questions() function every time an answer did not match the
-answer found in the list of tuples it was appended to a incorrect_answer list.
-The html page contains a for loop that adds the incorrect answer every time the
-failure page redirects back to the riddle html page.
-
-### Features left to implement:
-
-I would like to add the ability for slightly incorrect answers to be accepted.
-For example if an answer is 'apple', and the user types 'an apple', this should
-be accepted and would cause frustration. This is also the case with capitalised
-answers.
-
-I would like to add the ability for the page to update dynamically and inform
-the user they were incorrect or correct without the need for the success/failure
-pages. I believe this could be achieved through sessions.
-
-Again sessions should allow the riddles to be shuffled so that it is not the 
-same 8 questions each time and selected by a larger pool of riddles.
+answer or was less than 80% similar to the answer found in the list of tuples it
+was appended to a incorrect_answer list. The html page contains a for loop that
+adds the incorrect answer every time the failure page redirects back to the
+riddle html page.
 
 ### Leaderboard:
 
@@ -74,6 +71,29 @@ username of the user would be written to a new line in a specially made
 unique username is counted and then presented in a table on the leaderboard.html
 template.
 
+### Username selection:
+
+To prevent the same username being selected, which would have broken the
+leaderboard feature, the checkUsernameExists() function was utilised. Within the
+function I made use of the imported regular express (re), to search the
+users.txt file line by line to see if the username existed. The user was either
+sent to the start_game.html page if name was free or taken to the 
+username_exists.html page where the user would need to try again. Again this
+feature would be improved if the check could occur on the same page.
+
+Also as it stands 'joe' and 'Joe' would be accepted usernames. I did consider
+making all user input capitalised, however thought this took away from the
+personalisation of the username.
+
+### Features left to implement:
+
+I would like to add the ability for the page to update dynamically and inform
+the user they were incorrect or correct without the need for the success/failure
+pages. I believe this could be achieved through sessions.
+
+Again sessions should allow the riddles to be shuffled so that it is not the 
+same 8 questions each time and selected by a larger pool of riddles.
+
 ## Technologies Used
 
 - Python 3.4.3
@@ -82,6 +102,9 @@ template.
 - Google Fonts
 - CSS
 - HTML
+- FuzzyWuzzy module (string matching)
+- Regular Expression module
+- os module
 
 ## Testing:
 
@@ -111,6 +134,12 @@ test.py but also made sure the data was being passed to the HTML file properly.
 I tried new users with random names answering varying numbers of questions and
 was satisfied it was being displayed correctly.
 
+To test if the string matching feature was working I tried to imagine a slightly
+mis-spelled answer or an answer including a connecting word for each riddle. I 
+was satisfied that an 80% value gave enough scope for connecting words and small
+spelling errors. I didn't want a completely mis-spelled answer or random string
+to end up being correct.
+
 ## Deployment
 
 The project was deployed to Heroku with config vars:
@@ -118,6 +147,9 @@ The project was deployed to Heroku with config vars:
 - IP = 0.0.0.0
 - PORT = 5000
 
+https://riddlemethis-ci.herokuapp.com/
+
 There are no differences between the development and deployed versions.
 
 Note the project us written with Python3 and not Python2.
+
