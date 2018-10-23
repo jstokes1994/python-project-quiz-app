@@ -96,3 +96,22 @@ th {
 form {
     font-family: "k2D", sans-serif;
 }
+
+.username{
+    height: 35px;
+}
+
+.bootstrap-btn{
+    height: 35px;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+}
+
+.bootstrap-btn2{
+    height: 35px;
+    margin-bottom: 5px;
+}
+
+.guess-input{
+    height: 35px;
+}

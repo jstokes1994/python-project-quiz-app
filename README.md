@@ -151,5 +151,5 @@ https://riddlemethis-ci.herokuapp.com/
 
 There are no differences between the development and deployed versions.
 
-Note the project us written with Python3 and not Python2.
+Note the project is written with Python3 and not Python2.
 

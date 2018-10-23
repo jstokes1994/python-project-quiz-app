@@ -15,8 +15,8 @@
                 <h1 class="content-text content-header">{{ question }}</h1>
                 <form method="POST" class="guess">
                     <label for="guess" class="content-text content-subtext">Answer:</label>
-                    <input type="text" id="guess" name="guess">
-                    <button>Enter</button>
+                    <input type="text" id="guess" name="guess" class="guess-input">
+                    <button class="btn btn-dark bootstrap-btn2">Enter</button>
                 </form>
                 <p class="content-text content-header incorrect_answers">Incorrect answers:</p>
                 {% for answer in incorrect_answers %}

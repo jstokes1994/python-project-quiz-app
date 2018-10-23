@@ -16,11 +16,11 @@
                 <h5 class="content-text content-subheader">8 questions stand between you and victory</h5>
                 <form method="POST" class="login">
                     <label for="username" class="content-text content-subtext">Username:</label>
-                    <input type="text" id="username" name="username">
-                    <button>Let's play!</button>
+                    <input type="text" id="username" name="username" class="username">
+                    <button class="btn btn-dark bootstrap-btn">Let's play!</button>
                 </form>
                 <form method="POST" class="login" action="{{ url_for('leaderboard') }}">
-                    <button name="leaderboard" class="completed-buttons leaderboard">Leaderboard</button>
+                    <button name="leaderboard" class="btn btn-dark completed-buttons leaderboard">Leaderboard</button>
                 </form>
             </div>
         </div>
