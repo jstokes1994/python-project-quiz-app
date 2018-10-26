@@ -31,7 +31,7 @@ technologies expected.
 
 ## Features
 
-### Riddles:
+### Riddles
 
 Here the riddle.html template contains a variable 'question_number'. As the
 questions and answers are stored in a list of tuples it allowed iteration
@@ -45,7 +45,7 @@ The ask_questions() function also facilitated the checking of the answer in
 which the questions_and_answers list of tuples again became useful in which
 the index could be found as follows: [question_number][1].
 
-### String Matching for similar answers:
+### String Matching for similar answers
 
 Through the use of FuzzyWuzzy, a module I found when researching string
 matching. It solved the problem of answers that were very close. For example,
@@ -55,7 +55,7 @@ strings as its parameters and compares them producing a value that signifies
 similarity. I decided a minimum of 80% similarity was enough. This also allows
 for small spelling mistakes as well as the use of small connecting words.
 
-### Incorrect answers:
+### Incorrect answers
 
 Within the ask_questions() function every time an answer did not match the
 answer or was less than 80% similar to the answer found in the list of tuples it
@@ -63,7 +63,7 @@ was appended to a incorrect_answer list. The html page contains a for loop that
 adds the incorrect answer every time the failure page redirects back to the
 riddle html page.
 
-### Leaderboard:
+### Leaderboard
 
 My solution to the leaderboard was everytime a correct answer was found, the
 username of the user would be written to a new line in a specially made 
@@ -71,7 +71,7 @@ username of the user would be written to a new line in a specially made
 unique username is counted and then presented in a table on the leaderboard.html
 template.
 
-### Username selection:
+### Username selection
 
 To prevent the same username being selected, which would have broken the
 leaderboard feature, the checkUsernameExists() function was utilised. Within the
@@ -85,7 +85,7 @@ Also as it stands 'joe' and 'Joe' would be accepted usernames. I did consider
 making all user input capitalised, however thought this took away from the
 personalisation of the username.
 
-### Features left to implement:
+### Features left to implement
 
 I would like to add the ability for the page to update dynamically and inform
 the user they were incorrect or correct without the need for the success/failure
@@ -106,14 +106,14 @@ same 8 questions each time and selected by a larger pool of riddles.
 - Regular Expression module
 - os module
 
-## Testing:
+## Testing
 
-# Automated:
+# Automated
 
 I tried to use automated tests and follow the TDD principle where I could.
 The tests can be found in the test.py file
 
-# Manual tests:
+# Manual tests
 
 To test the index() function on the homepage, simply type in a username and
 check the users.txt file to make sure it is being appended.
@@ -141,6 +141,33 @@ spelling errors. I didn't want a completely mis-spelled answer or random string
 to end up being correct.
 
 ## Deployment
+
+To Clone the project from github:
+
+```python
+$ git clone https://github.com/jstokes1994/python-project-quiz-app
+```
+
+I recommend deploying the project in a virtual envioronment:
+
+```python
+$ cd directory-name
+$ python3 -m venv virtual-env-name
+```
+
+You will need to install the dependencies found in the requirements.txt file:
+
+```python
+$ pip3 install -r requirements.txt 
+```
+
+To run the project locally use:
+
+```python
+$ python3 run.py
+```
+
+You can also run the app through Heroku.
 
 The project was deployed to Heroku with config vars:
 
