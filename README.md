@@ -111,7 +111,14 @@ same 8 questions each time and selected by a larger pool of riddles.
 # Automated
 
 I tried to use automated tests and follow the TDD principle where I could.
-The tests can be found in the test.py file
+The tests which test the functionality of my functions can be found in the 
+test.py file.
+
+To run:
+
+```python
+python3 test.py
+```
 
 # Manual tests
 

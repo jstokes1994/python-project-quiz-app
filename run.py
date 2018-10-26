@@ -103,14 +103,7 @@ def ask_questions(username, question_number):
     question = questions[int(question_number)][0]
 
     if request.method == "POST":
-        # How to handle the user data from form
-        user_answer = request.get_data()
-        # Necessary with Python3 (bytes>str)
-        convert_to_str = user_answer.decode()
-        # split user answer from the 'guess=' found in the URL
-        raw_answer = convert_to_str.split("=")[1]
-        # replaces the + from URL with a space
-        answer = raw_answer.replace("+", " ")
+        answer = request.form.get('guess')
 
         # module fuzzywuzzy allows string matching for similar answers
         if fuzz.ratio(answer, questions[int(question_number)][1]) >= 80:
@@ -203,4 +196,5 @@ app.run(host=os.getenv('IP'), port=int(os.getenv('PORT')), debug=True)
 
 
 # Sessions
+
 

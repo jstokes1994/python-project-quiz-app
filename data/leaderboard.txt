@@ -19,3 +19,6 @@ riddlegenius
 hello
 player1
 
+nigel
+nigel
+nigel
