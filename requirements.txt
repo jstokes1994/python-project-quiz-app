@@ -5,7 +5,7 @@ colorama==0.2.5
 decorator==4.3.0
 Flask==1.0.2
 fuzzywuzzy==0.17.0
-html5lib==0.999
+html5lib==0.999999999
 ipython==6.5.0
 ipython-genutils==0.2.0
 itsdangerous==0.24
