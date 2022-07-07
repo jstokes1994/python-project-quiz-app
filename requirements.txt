@@ -20,7 +20,7 @@ ptyprocess==0.6.0
 pycurl==7.19.3
 Pygments==2.2.0
 python-Levenshtein==0.12.0
-requests==2.2.1
+requests==2.20.0
 simplegeneric==0.8.1
 six==1.5.2
 traitlets==4.3.2
